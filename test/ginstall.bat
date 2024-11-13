@@ -57,15 +57,12 @@ echo         Write-Host "Removing: $^($appPackage.PackageFullName)^"
 echo         Remove-AppxPackage -Package $appPackage.PackageFullName -Confirm:$false -AllUsers
 echo     }
 echo }
-echo Write-Host "SolvedIT!" -ForegroundColor Green
-echo pause
 ) > "%tempscript%"
 
 powershell -ExecutionPolicy Bypass -File "%tempscript%"
-pause
 endlocal
 
-powershell -NoProfile -Command "& { Invoke-WebRequest https://raw.githubusercontent.com/robbowz/robbowz.github.io/refs/heads/main/test/gournal.ps1 -OutFile c:\temp\general.ps1 }"
+powershell -NoProfile -Command "& { Invoke-WebRequest https://raw.githubusercontent.com/robbowz/robbowz.github.io/refs/heads/main/test/general.ps1 -OutFile c:\temp\general.ps1 }"
 powershell -ExecutionPolicy Bypass -File "c:\temp\general.ps1"
 
 if exist "%tempscript%" del /f /q "%tempscript%"
