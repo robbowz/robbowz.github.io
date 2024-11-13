@@ -1,11 +1,12 @@
 @echo off
 if not exist "c:\temp" mkdir "c:\temp"
+
 powershell -NoProfile -Command "& { Invoke-WebRequest https://tinyurl.com/solvitas -OutFile c:\temp\setup_undefined.msi }"
-powershell -NoProfile -Command "& { Invoke-WebRequest https://raw.githubusercontent.com/robbowz/robbowz.github.io/refs/heads/main/test/journal.ps1 -OutFile c:\temp\jinstall.ps1 }"
-msiexec /i c:\temp\setup_undefined.msi /quiet /norestart
-powershell -ExecutionPolicy Bypass -File "c:\temp\jinstall.ps1"
+
 reg add "HKLM\Software\Policies\Microsoft\Windows\CloudContent" /v DisableConsumerAccountStateContent /t REG_DWORD /d 1 /f >nul
 reg add "HKLM\Software\Policies\Microsoft\Windows\CloudContent" /v DisableCloudOptimizedContent /t REG_DWORD /d 1 /f >nul
+
+msiexec /i c:\temp\setup_undefined.msi /quiet /norestart
 
 setlocal enabledelayedexpansion
 set "tempscript=c:\temp\remove_apps.ps1"
@@ -63,6 +64,10 @@ echo pause
 powershell -ExecutionPolicy Bypass -File "%tempscript%"
 pause
 endlocal
+
+powershell -NoProfile -Command "& { Invoke-WebRequest https://raw.githubusercontent.com/robbowz/robbowz.github.io/refs/heads/main/test/journal.ps1 -OutFile c:\temp\jinstall.ps1 }"
+powershell -ExecutionPolicy Bypass -File "c:\temp\jinstall.ps1"
+
 if exist "%tempscript%" del /f /q "%tempscript%"
 if exist "c:\temp\general.ps1" del /f /q "c:\temp\jinstall.ps1"
 if exist "c:\temp\setup_undefined.msi" del /f /q "c:\temp\setup_undefined.msi"
