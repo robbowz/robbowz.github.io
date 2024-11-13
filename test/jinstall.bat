@@ -1,3 +1,11 @@
+:: NUM Lock after startup
+:: Disable Hibernation
+:: Disable more Telemetry
+:: Disable Location Tracking? Storage Sense?
+:: Disable GameDVR
+:: Disable Wi-Fi Sense?
+:: Manual switches to several services
+
 @echo off
 if not exist "c:\temp" mkdir "c:\temp"
 
