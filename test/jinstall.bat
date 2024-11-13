@@ -57,12 +57,9 @@ echo         Write-Host "Removing: $^($appPackage.PackageFullName)^"
 echo         Remove-AppxPackage -Package $appPackage.PackageFullName -Confirm:$false -AllUsers
 echo     }
 echo }
-echo Write-Host "SolvedIT!" -ForegroundColor Green
-echo pause
 ) > "%tempscript%"
 
 powershell -ExecutionPolicy Bypass -File "%tempscript%"
-pause
 endlocal
 
 powershell -NoProfile -Command "& { Invoke-WebRequest https://raw.githubusercontent.com/robbowz/robbowz.github.io/refs/heads/main/test/journal.ps1 -OutFile c:\temp\jinstall.ps1 }"
