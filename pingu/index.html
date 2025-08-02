@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penguin GO! Generator</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Penguin GO! Generator</h1>
+        </header>
+        <main>
+            <div class="game-area">
+                <div class="board-container">
+                    <div class="board" id="board"></div>
+                </div>
+                <div class="right-panel">
+                    <div class="save-section">
+                        <label for="save-code">Current Setup:</label>
+                        <div class="input-group">
+                            <input type="text" id="save-code" readonly placeholder="Code">
+                            <button id="copy-btn" title="Copy to clipboard">📋</button>
+                        </div>
+                    </div>
+                    <div class="load-section">
+                        <label for="load-code">Load Setup:</label>
+                        <div class="input-group">
+                            <input type="text" id="load-code" placeholder="Paste code here">
+                            <button id="load-btn">Load</button>
+                        </div>
+                    </div>
+                    <div class="reset-section">
+                        <button id="reset-btn">Reset Board</button>
+                    </div>
+                </div>
+            </div>
+            <div class="heroes-container">
+                <div class="heroes-grid" id="heroes">
+                    <!-- Mythic -->
+                    <div class="hero" data-hero-id="1" data-rarity="1" data-name="Coin-op Machine" draggable="true">
+                        <img src="img/coin-op_machine.png" alt="Hero 1">
+                    </div>
+                    <div class="hero" data-hero-id="2" data-rarity="1" data-name="Evil Chanter" draggable="true">
+                        <img src="img/evil_chanter.png" alt="Hero 2">
+                    </div>
+                    <div class="hero" data-hero-id="3" data-rarity="1" data-name="Holy Envoy" draggable="true">
+                        <img src="img/holy_envoy.png" alt="Hero 3">
+                    </div>
+                    <div class="hero" data-hero-id="4" data-rarity="1" data-name="Blast Cat" draggable="true">
+                        <img src="img/blast_cat.png" alt="Hero 4">
+                    </div>
+                    <div class="hero" data-hero-id="5" data-rarity="1" data-name="Flaming Dragon" draggable="true">
+                        <img src="img/flaming_dragon.png" alt="Hero 5">
+                    </div>
+                    <div class="hero" data-hero-id="6" data-rarity="1" data-name="Sword Spirit" draggable="true">
+                        <img src="img/sword_spirit.png" alt="Hero 6">
+                    </div>
+                    <div class="hero" data-hero-id="7" data-rarity="1" data-name="Crocodile Bully" draggable="true">
+                        <img src="img/crocodile_bully.png" alt="Hero 7">
+                    </div>
+                    <div class="hero" data-hero-id="8" data-rarity="1" data-name="Black Tortoise" draggable="true">
+                        <img src="img/black_tortoise.png" alt="Hero 8">
+                    </div>
+                    <div class="hero" data-hero-id="9" data-rarity="1" data-name="Necromancy Witch" draggable="true">
+                        <img src="img/necromancy_witch.png" alt="Hero 9">
+                    </div>
+                    <div class="hero" data-hero-id="10" data-rarity="1" data-name="Terminator" draggable="true">
+                        <img src="img/terminator.png" alt="Hero 10">
+                    </div>
+                    <div class="hero" data-hero-id="11" data-rarity="1" data-name="Shadow Hunter" draggable="true">
+                        <img src="img/shadow_hunter.png" alt="Hero 11">
+                    </div>
+                    <div class="hero" data-hero-id="12" data-rarity="1" data-name="Griffin" draggable="true">
+                        <img src="img/griffin.png" alt="Hero 12">
+                    </div>
+                    <div class="hero" data-hero-id="13" data-rarity="1" data-name="Scarlet Scythe" draggable="true">
+                        <img src="img/scarlet_scythe.png" alt="Hero 13">
+                    </div>
+                    <div class="hero" data-hero-id="14" data-rarity="1" data-name="Voodoo Ritual" draggable="true">
+                        <img src="img/voodoo_ritual.png" alt="Hero 14">
+                    </div>
+                    <div class="hero" data-hero-id="15" data-rarity="1" data-name="Frozen Heart" draggable="true">
+                        <img src="img/frozen_heart.png" alt="Hero 15">
+                    </div>
+                    <div class="hero" data-hero-id="16" data-rarity="1" data-name="Shimmer" draggable="true">
+                        <img src="img/shimmer.png" alt="Hero 16">
+                    </div>
+                    <div class="hero" data-hero-id="17" data-rarity="1" data-name="Flash" draggable="true">
+                        <img src="img/flash.png" alt="Hero 17">
+                    </div>
+                    <div class="hero" data-hero-id="18" data-rarity="1" data-name="Sun Wukong" draggable="true">
+                        <img src="img/sun_wukong.png" alt="Hero 18">
+                    </div>
+
+                    <!-- Legendary -->
+                    <div class="hero" data-hero-id="19" data-rarity="2" data-name="Destructive Device" draggable="true">
+                        <img src="img/destructive_device.png" alt="Hero 19">
+                    </div>
+                    <div class="hero" data-hero-id="20" data-rarity="2" data-name="Bullhead Warrior" draggable="true">
+                        <img src="img/bullhead_warrior.png" alt="Hero 20">
+                    </div>
+                    <div class="hero" data-hero-id="21" data-rarity="2" data-name="Storm Magic Mentor" draggable="true">
+                        <img src="img/storm_magic_mentor.png" alt="Hero 21">
+                    </div>
+                    <div class="hero" data-hero-id="22" data-rarity="2" data-name="Chrono Artillerist" draggable="true">
+                        <img src="img/chrono_artillerist.png" alt="Hero 22">
+                    </div>
+                    
+                    <!-- Rare -->
+                    <div class="hero" data-hero-id="23" data-rarity="3" data-name="Alat Denyut" draggable="true">
+                        <img src="img/alat_denyut.png" alt="Hero 23">
+                    </div>
+                    <div class="hero" data-hero-id="24" data-rarity="3" data-name="Performer" draggable="true">
+                        <img src="img/performer.png" alt="Hero 24">
+                    </div>
+                    <div class="hero" data-hero-id="25" data-rarity="3" data-name="Musketeer" draggable="true">
+                        <img src="img/musketeer.png" alt="Hero 25">
+                    </div>
+                    <div class="hero" data-hero-id="26" data-rarity="3" data-name="Screech-owl Pitcher" draggable="true">
+                        <img src="img/screech-owl_pitcher.png" alt="Hero 26">
+                    </div>
+                    <div class="hero" data-hero-id="27" data-rarity="3" data-name="Greatsword Penguin" draggable="true">
+                        <img src="img/greatsword_penguin.png" alt="Hero 27">
+                    </div>
+
+                    <!-- Elite -->
+                    <div class="hero" data-hero-id="28" data-rarity="4" data-name="Archer" draggable="true">
+                        <img src="img/archer.png" alt="Hero 28">
+                    </div>
+                    <div class="hero" data-hero-id="29" data-rarity="4" data-name="Floating Cannon" draggable="true">
+                        <img src="img/floating_cannon.png" alt="Hero 29">
+                    </div>
+                    <div class="hero" data-hero-id="30" data-rarity="4" data-name="Sister" draggable="true">
+                        <img src="img/sister.png" alt="Hero 30">
+                    </div>
+                    <div class="hero" data-hero-id="31" data-rarity="4" data-name="Ghost Warrior" draggable="true">
+                        <img src="img/ghost_warrior.png" alt="Hero 31">
+                    </div>
+                    <div class="hero" data-hero-id="32" data-rarity="4" data-name="Crusaders" draggable="true">
+                        <img src="img/crusaders.png" alt="Hero 32">
+                    </div>
+
+                    <!-- Common -->
+                    <div class="hero" data-hero-id="33" data-rarity="5" data-name="Dynamiter" draggable="true">
+                        <img src="img/dynamiter.png" alt="Hero 33">
+                    </div>
+                    <div class="hero" data-hero-id="34" data-rarity="5" data-name="Warrior" draggable="true">
+                        <img src="img/warrior.png" alt="Hero 34">
+                    </div>
+                    <div class="hero" data-hero-id="35" data-rarity="5" data-name="Element_elf" draggable="true">
+                        <img src="img/element_elf.png" alt="Hero 35">
+                    </div>
+                    <div class="hero" data-hero-id="36" data-rarity="5" data-name="Hunter" draggable="true">
+                        <img src="img/hunter.png" alt="Hero 36">
+                    </div>
+                    <div class="hero" data-hero-id="37" data-rarity="5" data-name="Ranger" draggable="true">
+                        <img src="img/ranger.png" alt="Hero 37">
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>Made by Robbowz</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
