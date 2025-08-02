@@ -1,0 +1,341 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 11px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: white;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.game-area {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.board-container {
+    flex: 1;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    place-items: center;
+}
+
+.board-slot {
+    width: 126px;
+    height: 126px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.board-slot:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.board-slot.occupied {
+    border-style: solid;
+    border-color: #4CAF50;
+    background: rgba(60, 153, 63, 0.35);
+}
+
+.right-panel {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    place-self: end;
+}
+
+.save-section, .load-section {
+    margin-bottom: 25px;
+}
+
+.reset-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#reset-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #f44336;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+#reset-btn:hover {
+    background: #d32f2f;
+}
+
+.board-slot .hero {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.save-section label, .load-section label {
+    display: block;
+    color: white;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    /* flex: 1; */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+.input-group button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.input-group button:hover {
+    background: #339638;
+}
+
+#copy-btn {
+    background: #2196F3 !important;
+    min-width: 45px;
+}
+
+#copy-btn:hover {
+    background: #1976D2 !important;
+}
+
+.heroes-container {
+    padding: 20px;
+    gap: 22px;
+    margin-bottom: 5px;
+    max-height: 860px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.heroes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(82px, 1fr));
+    gap: 22px;
+    max-height: 1200px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding-right: 15px;
+    margin-right: 5px;
+}
+
+.hero-info {
+    margin-top: 20px;
+    display: flex;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    gap: 20px;
+}
+
+.hero-image {
+    width: 100px;
+    height: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero {
+    width: 100px;
+    height: 128px;
+    cursor: grab;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero:hover {
+    transform: translateY(-3px);
+    position: relative;
+}
+
+.hero:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero:active {
+    cursor: grabbing;
+    transform: scale(0.95);
+}
+
+.hero.dragging {
+    opacity: 0.9;
+    transform: rotate(5deg);
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: auto;
+}
+
+.drag-over {
+    background: rgba(76, 175, 80, 0.4) !important;
+    border-color: #4CAF50 !important;
+    transform: scale(1.05);
+}
+
+@media (max-width: 1200px) {
+    .game-area {
+        flex-direction: column;
+        align-items: anchor-center !important;
+        gap: 18px;
+    }
+
+        .game-area {
+        flex-direction: column;
+        align-items: anchor-center !important;
+    }
+
+    .right-panel {
+        width: 652px !important;
+        place-items:center;
+        align-self: center;
+        display: ruby;
+        padding: 12px;
+    }
+
+    .reset-section {
+        margin-top: 10px;
+        margin-bottom: 2px;
+        margin-left: 5px;
+    }
+
+    .save-section {
+        margin-right: 10px;
+    }
+
+    .load-section {
+    margin-bottom: 15px;
+    }
+
+    .input-group {
+        display: flex;
+        gap: 6px;
+    }
+    
+    .board-container {
+        width: 652px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .board-slot {
+        width: 92px;
+        height: 92px;
+    }
+    
+    .board {
+        justify-self: center;
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .hero {
+        width: 90px;
+        height: 115px;
+    }
+    
+    .heroes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+        padding : 12px;
+    }
+}
